@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_Cadimuns
 {
-	public partial class Form1 : Form
+	public partial class principal : Form
 	{
-		public Form1()
+		public principal()
 		{
 			InitializeComponent();
 		}
