@@ -19,6 +19,11 @@
             <End Role="DataBase" EntitySet="DataBaseSet" />
             <End Role="TableDescription" EntitySet="TableDescriptionSet" />
           </AssociationSet>
+          <EntitySet Name="ConnectionSet" EntityType="Model.Connection" />
+          <AssociationSet Name="ConnectionDataBase" Association="Model.ConnectionDataBase">
+            <End Role="Connection" EntitySet="ConnectionSet" />
+            <End Role="DataBase" EntitySet="DataBaseSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="DataBase">
           <Key>
@@ -29,11 +34,8 @@
           <Property Name="TableId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
           <NavigationProperty Name="TableDescription" Relationship="Model.DataBaseTableDescription" FromRole="DataBase" ToRole="TableDescription" />
-          <Property Name="Address" Type="String" Nullable="false" />
-          <Property Name="Port" Type="String" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" />
-          <Property Name="Password" Type="String" Nullable="false" />
-        </EntityType>
+          <NavigationProperty Name="Connection" Relationship="Model.ConnectionDataBase" FromRole="DataBase" ToRole="Connection" />
+          </EntityType>
         <EntityType Name="TableDescription">
           <Key>
             <PropertyRef Name="Id" />
@@ -56,6 +58,21 @@
         <Association Name="DataBaseTableDescription">
           <End Type="Model.DataBase" Role="DataBase" Multiplicity="1" />
           <End Type="Model.TableDescription" Role="TableDescription" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Port" Type="String" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="DataBase" Relationship="Model.ConnectionDataBase" FromRole="Connection" ToRole="DataBase" />
+        </EntityType>
+        <Association Name="ConnectionDataBase">
+          <End Type="Model.Connection" Role="Connection" Multiplicity="1" />
+          <End Type="Model.DataBase" Role="DataBase" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

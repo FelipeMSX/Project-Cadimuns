@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projeto_Cadimuns.Model
+namespace Projeto_Cadimuns
 {
     using System;
     using System.Data.Entity;
@@ -27,5 +27,6 @@ namespace Projeto_Cadimuns.Model
     
         public virtual DbSet<DataBase> DataBaseSet { get; set; }
         public virtual DbSet<TableDescription> TableDescriptionSet { get; set; }
+        public virtual DbSet<Connection> ConnectionSet { get; set; }
     }
 }

@@ -40,8 +40,11 @@
 			this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
 			this.tabControl1 = new DevComponents.DotNetBar.TabControl();
 			this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
+			this.btnConnect = new DevComponents.DotNetBar.ButtonX();
 			this.comboBoxDataBase = new System.Windows.Forms.ComboBox();
+			this.bindingSourceDataBase = new System.Windows.Forms.BindingSource(this.components);
 			this.txtPassword = new System.Windows.Forms.TextBox();
+			this.bindingSourceConnection = new System.Windows.Forms.BindingSource(this.components);
 			this.txtUser = new System.Windows.Forms.TextBox();
 			this.mskAddressIP = new System.Windows.Forms.MaskedTextBox();
 			this.txtDoor = new System.Windows.Forms.TextBox();
@@ -59,6 +62,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabControlPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceDataBase)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceConnection)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvidermskAddress)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -245,6 +250,7 @@
 			// 
 			// tabControlPanel1
 			// 
+			this.tabControlPanel1.Controls.Add(this.btnConnect);
 			this.tabControlPanel1.Controls.Add(this.comboBoxDataBase);
 			this.tabControlPanel1.Controls.Add(this.txtPassword);
 			this.tabControlPanel1.Controls.Add(this.txtUser);
@@ -271,8 +277,23 @@
 			this.tabControlPanel1.TabIndex = 1;
 			this.tabControlPanel1.TabItem = this.tabItem1;
 			// 
+			// btnConnect
+			// 
+			this.btnConnect.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+			this.btnConnect.Font = new System.Drawing.Font("Gadugi", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnConnect.Location = new System.Drawing.Point(82, 167);
+			this.btnConnect.Name = "btnConnect";
+			this.btnConnect.Size = new System.Drawing.Size(75, 23);
+			this.btnConnect.TabIndex = 20;
+			this.btnConnect.Text = "Conectar";
+			this.btnConnect.TextColor = System.Drawing.Color.Black;
+			this.btnConnect.ThemeAware = true;
+			this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+			// 
 			// comboBoxDataBase
 			// 
+			this.comboBoxDataBase.DataSource = this.bindingSourceDataBase;
+			this.comboBoxDataBase.DisplayMember = "Name";
 			this.comboBoxDataBase.FormattingEnabled = true;
 			this.comboBoxDataBase.Location = new System.Drawing.Point(35, 240);
 			this.comboBoxDataBase.Name = "comboBoxDataBase";
@@ -281,8 +302,13 @@
 			this.comboBoxDataBase.SelectedIndexChanged += new System.EventHandler(this.comboBoxDataBase_SelectedIndexChanged);
 			this.comboBoxDataBase.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxDataBase_KeyDown);
 			// 
+			// bindingSourceDataBase
+			// 
+			this.bindingSourceDataBase.DataSource = typeof(Projeto_Cadimuns.DataBase);
+			// 
 			// txtPassword
 			// 
+			this.txtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConnection, "Password", true));
 			this.txtPassword.Location = new System.Drawing.Point(82, 132);
 			this.txtPassword.MaxLength = 255;
 			this.txtPassword.Name = "txtPassword";
@@ -290,8 +316,13 @@
 			this.txtPassword.Size = new System.Drawing.Size(100, 20);
 			this.txtPassword.TabIndex = 18;
 			// 
+			// bindingSourceConnection
+			// 
+			this.bindingSourceConnection.DataSource = typeof(Projeto_Cadimuns.Connection);
+			// 
 			// txtUser
 			// 
+			this.txtUser.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConnection, "UserName", true));
 			this.txtUser.Location = new System.Drawing.Point(82, 100);
 			this.txtUser.MaxLength = 255;
 			this.txtUser.Name = "txtUser";
@@ -300,6 +331,7 @@
 			// 
 			// mskAddressIP
 			// 
+			this.mskAddressIP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConnection, "Address", true));
 			this.mskAddressIP.Location = new System.Drawing.Point(82, 55);
 			this.mskAddressIP.Mask = "999.999.999.999";
 			this.mskAddressIP.Name = "mskAddressIP";
@@ -310,6 +342,7 @@
 			// 
 			// txtDoor
 			// 
+			this.txtDoor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceConnection, "Port", true));
 			this.txtDoor.Location = new System.Drawing.Point(233, 55);
 			this.txtDoor.MaxLength = 255;
 			this.txtDoor.Name = "txtDoor";
@@ -410,12 +443,15 @@
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Projeto Cadimuns";
+			this.Load += new System.EventHandler(this.Main_Load);
 			this.panelExBottom.ResumeLayout(false);
 			this.panelEx3.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
 			this.tabControl1.ResumeLayout(false);
 			this.tabControlPanel1.ResumeLayout(false);
 			this.tabControlPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceDataBase)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceConnection)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvidermskAddress)).EndInit();
 			this.ResumeLayout(false);
 
@@ -448,6 +484,9 @@
 		private System.Windows.Forms.TextBox txtUser;
 		private System.Windows.Forms.TextBox txtDoor;
 		private System.Windows.Forms.ComboBox comboBoxDataBase;
+		private System.Windows.Forms.BindingSource bindingSourceConnection;
+		private DevComponents.DotNetBar.ButtonX btnConnect;
+		private System.Windows.Forms.BindingSource bindingSourceDataBase;
 	}
 }
 

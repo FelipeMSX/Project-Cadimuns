@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Projeto_Cadimuns.Model
+namespace Projeto_Cadimuns
 {
     using System;
     using System.Collections.Generic;
