@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevComponents.DotNetBar.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,12 @@ using System.Windows.Forms;
 
 namespace Projeto_Cadimuns
 {
-	public partial class principal : Form
+	public partial class principal : DevComponents.DotNetBar.Office2007Form
 	{
 		public principal()
 		{
 			InitializeComponent();
 		}
+
 	}
 }
