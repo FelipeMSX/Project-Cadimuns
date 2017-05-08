@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Cadimuns
 {
-	partial class principal
+	partial class Main
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -40,7 +40,11 @@
 			this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
 			this.tabControl1 = new DevComponents.DotNetBar.TabControl();
 			this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.comboBoxDataBase = new System.Windows.Forms.ComboBox();
+			this.txtPassword = new System.Windows.Forms.TextBox();
+			this.txtUser = new System.Windows.Forms.TextBox();
+			this.mskAddressIP = new System.Windows.Forms.MaskedTextBox();
+			this.txtDoor = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -241,7 +245,11 @@
 			// 
 			// tabControlPanel1
 			// 
-			this.tabControlPanel1.Controls.Add(this.textBox1);
+			this.tabControlPanel1.Controls.Add(this.comboBoxDataBase);
+			this.tabControlPanel1.Controls.Add(this.txtPassword);
+			this.tabControlPanel1.Controls.Add(this.txtUser);
+			this.tabControlPanel1.Controls.Add(this.mskAddressIP);
+			this.tabControlPanel1.Controls.Add(this.txtDoor);
 			this.tabControlPanel1.Controls.Add(this.label5);
 			this.tabControlPanel1.Controls.Add(this.label4);
 			this.tabControlPanel1.Controls.Add(this.label3);
@@ -263,22 +271,61 @@
 			this.tabControlPanel1.TabIndex = 1;
 			this.tabControlPanel1.TabItem = this.tabItem1;
 			// 
-			// textBox1
+			// comboBoxDataBase
 			// 
-			this.textBox1.Location = new System.Drawing.Point(91, 53);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(100, 20);
-			this.textBox1.TabIndex = 15;
+			this.comboBoxDataBase.FormattingEnabled = true;
+			this.comboBoxDataBase.Location = new System.Drawing.Point(35, 240);
+			this.comboBoxDataBase.Name = "comboBoxDataBase";
+			this.comboBoxDataBase.Size = new System.Drawing.Size(249, 21);
+			this.comboBoxDataBase.TabIndex = 19;
+			this.comboBoxDataBase.SelectedIndexChanged += new System.EventHandler(this.comboBoxDataBase_SelectedIndexChanged);
+			this.comboBoxDataBase.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxDataBase_KeyDown);
+			// 
+			// txtPassword
+			// 
+			this.txtPassword.Location = new System.Drawing.Point(82, 132);
+			this.txtPassword.MaxLength = 255;
+			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.PasswordChar = '*';
+			this.txtPassword.Size = new System.Drawing.Size(100, 20);
+			this.txtPassword.TabIndex = 18;
+			// 
+			// txtUser
+			// 
+			this.txtUser.Location = new System.Drawing.Point(82, 100);
+			this.txtUser.MaxLength = 255;
+			this.txtUser.Name = "txtUser";
+			this.txtUser.Size = new System.Drawing.Size(100, 20);
+			this.txtUser.TabIndex = 17;
+			// 
+			// mskAddressIP
+			// 
+			this.mskAddressIP.Location = new System.Drawing.Point(82, 55);
+			this.mskAddressIP.Mask = "999.999.999.999";
+			this.mskAddressIP.Name = "mskAddressIP";
+			this.mskAddressIP.Size = new System.Drawing.Size(100, 20);
+			this.mskAddressIP.TabIndex = 16;
+			this.mskAddressIP.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskTextBox_KeyDown);
+			this.mskAddressIP.Validating += new System.ComponentModel.CancelEventHandler(this.mskTextBox_Validating);
+			// 
+			// txtDoor
+			// 
+			this.txtDoor.Location = new System.Drawing.Point(233, 55);
+			this.txtDoor.MaxLength = 255;
+			this.txtDoor.Name = "txtDoor";
+			this.txtDoor.Size = new System.Drawing.Size(100, 20);
+			this.txtDoor.TabIndex = 15;
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(78, 240);
+			this.label5.Location = new System.Drawing.Point(12, 224);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(85, 13);
 			this.label5.TabIndex = 13;
 			this.label5.Text = "Banco de dados";
+			this.label5.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// label4
 			// 
@@ -294,7 +341,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(194, 56);
+			this.label3.Location = new System.Drawing.Point(195, 58);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(32, 13);
 			this.label3.TabIndex = 8;
@@ -304,7 +351,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.BackColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(32, 148);
+			this.label2.Location = new System.Drawing.Point(32, 132);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(38, 13);
 			this.label2.TabIndex = 6;
@@ -314,7 +361,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(32, 119);
+			this.label1.Location = new System.Drawing.Point(32, 103);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(43, 13);
 			this.label1.TabIndex = 4;
@@ -324,7 +371,7 @@
 			// 
 			this.labal1.AutoSize = true;
 			this.labal1.BackColor = System.Drawing.Color.White;
-			this.labal1.Location = new System.Drawing.Point(32, 56);
+			this.labal1.Location = new System.Drawing.Point(22, 56);
 			this.labal1.Name = "labal1";
 			this.labal1.Size = new System.Drawing.Size(53, 13);
 			this.labal1.TabIndex = 0;
@@ -346,7 +393,7 @@
 			// 
 			this.errorProvidermskAddress.ContainerControl = this;
 			// 
-			// principal
+			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -359,7 +406,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "principal";
+			this.Name = "Main";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Projeto Cadimuns";
@@ -396,7 +443,11 @@
 		private DevComponents.DotNetBar.Validator.RegularExpressionValidator regularExpressionValidator1;
 		private System.Windows.Forms.ErrorProvider errorProvidermskAddress;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.MaskedTextBox mskAddressIP;
+		private System.Windows.Forms.TextBox txtPassword;
+		private System.Windows.Forms.TextBox txtUser;
+		private System.Windows.Forms.TextBox txtDoor;
+		private System.Windows.Forms.ComboBox comboBoxDataBase;
 	}
 }
 

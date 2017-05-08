@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="767cf6d60e3846c8839a61c171c07491" Name="Diagram1" DisplayType="true" >
+        <EntityTypeShape EntityType="Model.DataBase" Width="1.625" PointX="3.125" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TableDescription" Width="1.875" PointX="5.5" PointY="1.875" />
+        <AssociationConnector Association="Model.DataBaseTableDescription" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
