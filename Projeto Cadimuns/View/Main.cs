@@ -17,6 +17,7 @@ namespace Projeto_Cadimuns
 	{
 
 		ModelContainer modelContainer = new ModelContainer();
+		Connection  connection  ;
 		public Main()
 		{
 			InitializeComponent();
@@ -62,15 +63,16 @@ namespace Projeto_Cadimuns
 
 		private void btnConnect_Click(object sender, EventArgs e)
 		{
-		
+			connection.Port = "88";
 			bindingSourceConnection.EndEdit();
 			modelContainer.SaveChanges();
 
-			Object x = modelContainer.ConnectionSet;
 		}
 
 		private void Main_Load(object sender, EventArgs e)
 		{
+			connection = (Connection)bindingSourceConnection.AddNew();
+			
 			SqlConnection MyConnection;
 
 			String IP;
@@ -106,6 +108,31 @@ namespace Projeto_Cadimuns
 				dataReader.Close();
 			command.Dispose();
 			MyConnection.Close();
+		}
+
+		private void bindingSourceConnection_AddingNew(object sender, AddingNewEventArgs e)
+		{
+			
+		}
+
+		private void bindingSourceConnection_BindingComplete(object sender, BindingCompleteEventArgs e)
+		{
+
+		}
+
+		private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void bindingSourceConnection_DataError(object sender, BindingManagerDataErrorEventArgs e)
+		{
+
+		}
+
+		private void bindingSourceConnection_CurrentChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
